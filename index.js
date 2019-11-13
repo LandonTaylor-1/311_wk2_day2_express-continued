@@ -37,6 +37,51 @@ app.get('/vehicles/:id', (req,res)=>{
     return res.json(vehicle);
 });
 
+app.post('/comments', (req,res)=>{
+    let newComment = {
+        _id: comments.length + 1,
+        body: req.body,
+        postId: 1
+    }
+    comments.push(newComment)
+    return res.json(newComment)
+})
+
+app.post('/contacts', (req,res)=>{
+    let newContact = {
+        _id: contacts.length + 1,
+        name: req.body,
+        occupation: req.body,
+        avatar: req.body,
+        postId: 1
+    }
+    contacts.push(newContact)
+    return res.json(newContact)
+})
+
+app.post('/products', (req,res)=>{
+    let newProduct = {
+        _id: products.length + 1,
+        name: req.body,
+        description: req.body,
+        postId: 1
+    }
+    products.push(newProduct)
+    return res.json(newProduct)
+})
+
+app.post('/vehicles', (req,res)=>{
+    let newVehicle = {
+        _id: vehicles.length + 1,
+        year: req.body,
+        make: req.body,
+        model: req.body,
+        postId: 1
+    }
+    vehicles.push(newVehicle)
+    return res.json(newVehicle)
+})
+
 app.use(express.static("public"));
 app.use(bodyParser.json());
 
